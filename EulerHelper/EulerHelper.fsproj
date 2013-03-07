@@ -47,6 +47,8 @@
     <None Include="loadfs.fsx" />
     <None Include="Script.fsx" />
     <Compile Include="Prob3.fs" />
+    <Compile Include="Prob4.fs" />
+    <Compile Include="Prob5.fs" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
