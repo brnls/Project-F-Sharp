@@ -1,8 +1,8 @@
 E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\EulerHelper.XML
-E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\EulerHelper.dll
 E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\EulerHelper.pdb
 E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\FSharp.Core.dll
 E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\FSharp.Core.xml
-E:\GitHub\Project F Sharp\EulerHelper\obj\Debug\EulerHelper.dll
 E:\GitHub\Project F Sharp\EulerHelper\obj\Debug\EulerHelper.pdb
 E:\GitHub\Project F Sharp\EulerHelper\obj\Debug\EulerHelper.fsprojResolveAssemblyReference.cache
+E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\EulerHelper.dll
+E:\GitHub\Project F Sharp\EulerHelper\obj\Debug\EulerHelper.dll

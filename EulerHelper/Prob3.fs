@@ -1,6 +1,6 @@
-﻿module Euler.Prob3
+﻿module EulerHelper.Prob3
 
-open Euler.Util
+open EulerHelper.Util
 
 let rec div (a:int64) (b:int64) =
     match divRemL a b with 

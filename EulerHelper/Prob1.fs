@@ -1,4 +1,4 @@
-﻿module Euler.Prob1 
+﻿module EulerHelper.Prob1 
 
 let answ = 
     {1..999}

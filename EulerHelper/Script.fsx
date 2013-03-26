@@ -1,7 +1,14 @@
 ﻿
 #load "loadfs.fsx"
-open Euler.Util
-open Euler
-// Define your library scripting code here
+open EulerHelper.Util
+open EulerHelper
+open System.IO
 
-myFold [1L..20L] lcm 1L
+let triangleNumbers = 
+    Seq.initInfinite ((+) 2)
+    |> Seq.scan (+) 1
+
+let total = 500 
+let sq = {1..10}
+Seq.scan (fun tot change -> tot - change) total sq
+|>Seq .iter (printfn "%i")
