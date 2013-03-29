@@ -55,6 +55,10 @@
     <Compile Include="Prob13.fs" />
     <Content Include="Prob13.txt" />
     <Compile Include="Prob14.fs" />
+    <Compile Include="Prob16.fs" />
+    <Compile Include="Prob17.fs" />
+    <Compile Include="Prob18.fs" />
+    <Content Include="Prob18.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
