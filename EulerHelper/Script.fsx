@@ -4,28 +4,18 @@ open EulerHelper.Util
 open EulerHelper
 open System.IO
 open System.Numerics
+open System
+#indent "on"
 
-EulerHelper.Util.aToi
+let bigFact x = 
+    let rec inner (num:BigInteger) acc =
+        let numBig = bigint 1
+        match num with
+        |numBig -> acc
+        |_ -> inner (num - bigint 1) (acc * num)
+    inner x (bigint 1) 
 
-type Age =
-| PossiblyAlive of int
-| NotAlive
+bigFact (bigint 9)
 
-type AgeBuilder() =
-    member this.Bind(x, f) =
-        match x with
-        | PossiblyAlive(x) when x >= 0 && x <= 120 -> f(x)
-        | _ -> NotAlive
-    member this.Delay(f) = f()
-    member this.Return(x) = PossiblyAlive x
 
-let age = new AgeBuilder()
-
-let willBeThere a y =
-  age { 
-    let! current = PossiblyAlive a
-    let! future = PossiblyAlive y
-
-    return current + future
-  }
-willBeThere 38 50
+ 
