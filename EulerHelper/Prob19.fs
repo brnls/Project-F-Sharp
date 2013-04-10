@@ -1,5 +1,4 @@
 ﻿module Prob19
-
 open System
 
 let dt = new DateTime(1901,1,1)

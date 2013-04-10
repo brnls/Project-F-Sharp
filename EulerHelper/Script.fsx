@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿let isAbundant n = 
     [1 .. (n/2)]
     |>List.filter (fun x -> n % x = 0)
@@ -47,3 +48,26 @@ let euler023 =
     [1 .. 28123]
     |> List.filter (fun x -> sums.Contains(x) |> not)
     |> List.sum
+=======
+﻿
+#load "loadfs.fsx"
+open EulerHelper.Util
+open EulerHelper
+open System.IO
+open System.Numerics
+open System
+#indent "on"
+
+let bigFact x = 
+    let rec inner (num:BigInteger) acc =
+        let numBig = bigint 1
+        match num with
+        |numBig -> acc
+        |_ -> inner (num - bigint 1) (acc * num)
+    inner x (bigint 1) 
+
+bigFact (bigint 9)
+
+
+ 
+>>>>>>> d93d0e1c2f9c984812c6735ab3032b330d2c43dc

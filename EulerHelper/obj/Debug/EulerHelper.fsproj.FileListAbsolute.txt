@@ -6,3 +6,11 @@ E:\GitHub\Project F Sharp\EulerHelper\obj\Debug\EulerHelper.pdb
 E:\GitHub\Project F Sharp\EulerHelper\obj\Debug\EulerHelper.fsprojResolveAssemblyReference.cache
 E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\EulerHelper.dll
 E:\GitHub\Project F Sharp\EulerHelper\obj\Debug\EulerHelper.dll
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\bin\Debug\EulerHelper.XML
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\bin\Debug\EulerHelper.dll
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\bin\Debug\EulerHelper.pdb
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\bin\Debug\FSharp.Core.dll
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\bin\Debug\FSharp.Core.xml
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\obj\Debug\EulerHelper.fsprojResolveAssemblyReference.cache
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\obj\Debug\EulerHelper.dll
+C:\Users\msloan\Desktop\brianFSharp\EulerHelper\obj\Debug\EulerHelper.pdb
