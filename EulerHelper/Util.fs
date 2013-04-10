@@ -1,9 +1,20 @@
 ﻿namespace EulerHelper
-
+open System.Collections.Generic
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////   General Utility functions   /////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
     module Util = 
+
+        let memoize f = 
+            let myDic= Dictionary<_,_>()
+            fun x -> 
+                match myDic.TryGetValue(x) with
+                |true, res -> res
+                |false, _ ->
+                    let res = f x
+                    myDic.Add(x,res)
+                    res
+
     //Class to keep track of game score
         type gameScore() =
             let mutable A = 0
@@ -73,6 +84,8 @@
                 loop n 1 -1
             else
                 loop n 1 0
+
+      
 
 ////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////  Fibonacci Generation /////////////////////////////

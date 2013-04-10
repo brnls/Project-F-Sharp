@@ -1,31 +1,49 @@
-﻿
-#load "loadfs.fsx"
-open EulerHelper.Util
-open EulerHelper
-open System.IO
-open System.Numerics
+﻿let isAbundant n = 
+    [1 .. (n/2)]
+    |>List.filter (fun x -> n % x = 0)
+    |>List.sum
+    |>(fun x-> x > n)
 
-EulerHelper.Util.aToi
+let getAbundants max = 
+    let abundants:int[] = Array.zeroCreate max
+    for i in 0..abundants.Length - 1 do
+        if abundants.[i] = 0 then
+            if isAbundant i then 
+                for j in i .. i .. abundants.Length - 1 do
+                    abundants.[j] <- j
+    abundants  
+            
+getAbundants 28123
+|>Array.filter(fun x-> x <>0)
+|>Array.sum
 
-type Age =
-| PossiblyAlive of int
-| NotAlive
+#time
+[1..28123]
+|>List.filter (fun x-> isAbundant x |> not)
+|>List.sum
 
-type AgeBuilder() =
-    member this.Bind(x, f) =
-        match x with
-        | PossiblyAlive(x) when x >= 0 && x <= 120 -> f(x)
-        | _ -> NotAlive
-    member this.Delay(f) = f()
-    member this.Return(x) = PossiblyAlive x
+let isAbundant x =
 
-let age = new AgeBuilder()
+let properDivisorsOf n =
+    [1 .. (n/2)]
+    |> List.filter (fun x -> n % x = 0)
 
-let willBeThere a y =
-  age { 
-    let! current = PossiblyAlive a
-    let! future = PossiblyAlive y
+let isAbundant n =
+    (properDivisorsOf n |> List.sum) > n
 
-    return current + future
-  }
-willBeThere 38 50
+let abundantNumbers =
+    [1 .. 28123]
+    |> List.filter isAbundant
+
+let sumsOf2AbundantNumbers =
+    [ for i in abundantNumbers do
+         for j in (abundantNumbers 
+                   |> Seq.skipWhile (fun x -> x < i)
+                   |> Seq.takeWhile (fun x -> x + i <= 28123)) do
+             yield i + j ]
+
+let euler023 = 
+    let sums = new Set<_>(sumsOf2AbundantNumbers)
+    [1 .. 28123]
+    |> List.filter (fun x -> sums.Contains(x) |> not)
+    |> List.sum

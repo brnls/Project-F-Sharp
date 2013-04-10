@@ -32,6 +32,9 @@
     <DocumentationFile>bin\Release\Euler.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FImages">
+      <HintPath>..\..\FImages\FImages\bin\Debug\FImages.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
@@ -40,6 +43,7 @@
       <HintPath>..\packages\MSDN.FSharpChart.dll.0.60\lib\MSDN.FSharpChart.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -48,13 +52,15 @@
     <Reference Include="System.Windows.Forms.DataVisualization" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Script.fsx" />
     <None Include="Convolve.fsx" />
     <None Include="OneDConvolve.fsx" />
     <Compile Include="Program.fs" />
     <None Include="packages.config" />
     <None Include="app.config" />
     <None Include="FSharpChart.fsx" />
-    <None Include="Script.fsx" />
+    <None Include="OneLump.dat" />
+    <None Include="Probability.fsx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EulerHelper\EulerHelper.fsproj">

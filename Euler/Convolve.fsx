@@ -1,5 +1,6 @@
 ﻿
 open System
+open System.IO
 module Convolve =
 
     ///Parameters are signal, filter, window mid point (the line on the 2D plot where you expect the signal to be, where the filter will be passed over)
@@ -37,3 +38,20 @@ module Convolve =
         let rand = new Random()
         data
         |>Array2D.map (fun x -> x + (scale * rand.NextDouble()))
+
+    let processDatFile filepath = 
+        let signalData = 
+            File.ReadAllLines(filepath)
+            |>Array.map (fun x-> x.Split(null))
+            |>Array.map (fun x -> [|(float x.[3])/69.0; (float x.[4])/69.0; sqrt(float(x.[5])**2.0 + float(x.[6])**2.0;)|])
+        
+        let gridsize = int (sqrt(double signalData.Length))
+
+        let signalArr2D = Array2D.zeroCreate gridsize gridsize
+        for i in 0..(gridsize * gridsize - 1) do
+            let xVal = signalData.[i].[0]
+            let yVal = signalData.[i].[1]
+            let funcVal = signalData.[i].[2]
+            signalArr2D.[int xVal - 1,int yVal - 1] <- funcVal
+        
+        signalArr2D
