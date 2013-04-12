@@ -32,6 +32,3 @@ let isAmicable n =
 |>List.filter isAmicable
 |>List.sum
 
-
-
-
