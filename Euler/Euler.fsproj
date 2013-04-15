@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Script.fsx" />
+    <Compile Include="Options.fs" />
     <None Include="Convolve.fsx" />
     <None Include="OneDConvolve.fsx" />
     <Compile Include="Program.fs" />

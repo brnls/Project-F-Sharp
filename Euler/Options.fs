@@ -25,24 +25,27 @@ type Position = {
     PurchasePrice : decimal; //Per unit holding
 }
 
-let optionValue (opt:Option) currentPrice = 
-     match opt.Type with
-    |Put -> max (opt.Strike - currentPrice) 0m
-    |Call -> max (currentPrice - opt.Strike) 0m
+let optionValue (option:Option) currentPrice = 
+     match option.Type with
+    |Put -> max (option.Strike - currentPrice) 0m
+    |Call -> max (currentPrice - option.Strike) 0m
 
-let instrumentValue (inst:Instrument) currentPrice =
-    match inst with
+let instrumentValue (instrument:Instrument) currentPrice =
+    match instrument with
     |Physical -> currentPrice
     |Option opt -> optionValue opt currentPrice
 
-let positionProfit (pos:Position) currentPrice =
-    match pos.Type with
-    |Long -> (instrumentValue pos.Instrument currentPrice - pos.PurchasePrice) * pos.Holdings
-    |Short -> (pos.PurchasePrice - instrumentValue pos.Instrument currentPrice) * pos.Holdings
+let positionProfit (position:Position) currentPrice =
+    match position.Type with
+    |Long -> (instrumentValue position.Instrument currentPrice - position.PurchasePrice) * position.Holdings
+    |Short -> (position.PurchasePrice - instrumentValue position.Instrument currentPrice) * position.Holdings
 
 let positionsSumProfit positions currentPrice =
     positions
     |>Seq.sumBy(fun x-> positionProfit x currentPrice)
+
+let opt optType strike posType holdings purchasePrice =
+    {Instrument = Option {Type = optType; Strike = strike;}; Type = posType; Holdings = holdings; PurchasePrice = purchasePrice;}
 
 
 

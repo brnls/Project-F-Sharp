@@ -1,18 +1,4 @@
-//open MSDN.FSharp.Charting
-//open System.Windows.Forms.DataVisualization
-//open Convolve
-//let rand = new Random()
-//let filepath = @"C:\Users\Brian\Desktop\" + "dog.JPG"
-//let getImage func filepath=
-//    use newImage =
-//        Util.pictureToBmp(filepath)
-//        //|>Util.filter (Filters.strongestColor 0.7)
-//        |>Util.filter func
-//        |>Util.bmpToPicture
-//        
-//    newImage.Save(@"C:\Users\Brian\Desktop\" + "test2.jpg")
-//
-//getImage (Filters.smear) filepath
+﻿module Prob24
 
 let swap i j (num:int[]) = 
     let mutable temp = num.[i]
@@ -46,16 +32,9 @@ let permute num =
         swap pivot minimumPosition num
         permuteSubset pivot num
 
+let digits = [|0;1;2;3;4;5;6;7;8;9;|]
+for i in 1..999999 do
+    permute digits
+digits
 
-let pivot = getPivot myArr
-let minimumPosition = getMinimum pivot myArr
-//swap pivot minimumPosition myArr
-//swap 3 4 myArr
-myArr
 
-permute myArr
-myArr
-for i in 0..10 do
-    permute myArr
-    printfn "%A" myArr
-    
