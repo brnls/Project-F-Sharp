@@ -47,10 +47,6 @@
       <HintPath>..\packages\FSharp.Data.1.1.10\lib\net40\FSharp.Data.DesignTime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="MSDN.FSharpChart">
       <HintPath>..\packages\MSDN.FSharpChart.dll.0.60\lib\MSDN.FSharpChart.dll</HintPath>
