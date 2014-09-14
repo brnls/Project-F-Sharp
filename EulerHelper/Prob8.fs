@@ -1,5 +1,7 @@
 ﻿module Prob8
 open EulerHelper.Util
+open System.Numerics
+
 let str = "73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
@@ -21,21 +23,19 @@ let str = "73167176531330624919225119674426574742355349194934
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450"
 
-let sets =
-    seq {for i in 0..(str.Length - 5) do 
-            yield (aToi str.[i], aToi str.[i+1], aToi str.[i+2], aToi str.[i+3], aToi str.[i+4])}
-
-let answ = 
-    sets
-    |>Seq.map (fun (a,b,c,d,e) -> a*b*c*d*e)
-    |>Seq.max
-
-
 //From fsharp-euler.wikispaces.com
 let answ2 = 
     str
-    |>Seq.map (fun x-> int(x) - 48)
+    |>Seq.map (fun x-> int64(x) - 48L)
+    |>Seq.map(fun x -> BigInteger x)
+    |>Seq.windowed 5
+    |>Seq.map (fun x -> x, (Array.reduce (fun a b-> (BigInteger.Multiply)(a,b)) x))
+    |>Seq.maxBy (fun (x,y) -> y)
+
+
+let test = 
+    "22222222222223"
+    |>Seq.map (fun x-> int64(x) - 48L)
     |>Seq.windowed 5
     |>Seq.map (Array.reduce (*))
     |>Seq.max
-

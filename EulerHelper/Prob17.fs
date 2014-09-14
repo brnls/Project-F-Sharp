@@ -2,7 +2,11 @@
 
 open System.Numerics
 
-let rec iToWords = function
+
+
+let rec iToWords = 
+
+    function
     |0 -> ""
     |1 -> "one"
     |2 -> "two"
@@ -25,7 +29,7 @@ let rec iToWords = function
     | 19 -> "nineteen" 
     | x when x < 30 -> "twenty" + (if x <> 20 then "-" else "") + iToWords (x-20)
     | x when x < 40 -> "thirty" + (if x <> 30 then "-" else "") + iToWords (x-30)
-    | x when x < 50 -> "fourty" + (if x <> 40 then "-" else "") + iToWords (x-40)
+    | x when x < 50 -> "forty" + (if x <> 40 then "-" else "") + iToWords (x-40)
     | x when x < 60 -> "fifty" + (if x <> 50 then "-" else "") + iToWords (x-50)
     | x when x < 70 -> "sixty" + (if x <> 60 then "-" else "") + iToWords (x-60)
     | x when x < 80 -> "seventy" + (if x <> 70 then "-" else "") + iToWords (x-70)
@@ -39,20 +43,22 @@ let rec iToWords = function
         let thousands = x/1000
         let hundreds = x % 1000
         iToWords thousands + " thousand" + (if x % 1000 = 0 then "" else " " + iToWords hundreds)                                            
-    | _ -> "to high"
+    | _ -> "too high"
 
 let countChars str = 
     str
-    |>String.map (fun x-> if (x = ' ' || x = '-') then '$' else x)
-    |>List.ofSeq
-    |>Seq.sumBy(fun x -> if x <> '$' then 1 else 0)
-   
-iToWords 5353   
+    |>Seq.filter (fun x-> x <> ' ' && x <> '-')
+    |>Seq.length
+    
+  
+ 
+
+iToWords 342  
 |>countChars
 
 {1..1000}
 |>Seq.map iToWords
 |>Seq.sumBy(fun x-> countChars x)
 
-iToWords 999999
+
 

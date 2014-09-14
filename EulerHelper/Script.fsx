@@ -1,6 +1,12 @@
-﻿let bigFib = 
-    Seq.unfold (fun (x,y) -> Some (x + y, (y, (x + y)))) (0I,1I)
+﻿#r @"E:\GitHub\Stocks\StockHelper\bin\Debug\StockHelper.dll"
+#r @"E:\GitHub\Project F Sharp\EulerHelper\bin\Debug\EulerHelper.dll"
 
-bigFib
-|>Seq.findIndex(fun x-> x.ToString().Length = 1000)
-|>(fun x-> x + 2) // Sequence is 0 indexed and starts on second member of fib sequence.
+#load "Util.fs"
+open System.Configuration
+open System
+open System.Collections.Generic
+open System.Linq
+open EulerHelper.Util
+open EulerHelper.Primes
+open System.Numerics
+

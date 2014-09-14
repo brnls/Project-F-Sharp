@@ -8,7 +8,48 @@
 <member name="">
 
 </member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:EulerHelper.Array">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
 <member name="T:EulerHelper.Fibonacci">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:EulerHelper.Permutations.swap``1(System.Int32,System.Int32,``0[])">
+<summary>
+Swap two members of an array
+</summary>
+</member>
+<member name="T:EulerHelper.Permutations">
 
 </member>
 <member name="">
@@ -44,26 +85,16 @@
 <member name="">
 
 </member>
+<member name="">
+
+</member>
 <member name="T:EulerHelper.Prob3">
 
 </member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
+<member name="M:EulerHelper.Util.selectRandom``1(System.Collections.Generic.IEnumerable{``0})">
+<summary>
+Select random element from given sequence
+</summary>
 </member>
 <member name="">
 
@@ -104,76 +135,10 @@
 <member name="T:EulerHelper.Util">
 
 </member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="">
-
-</member>
-<member name="T:Options">
-
-</member>
 <member name="T:Prob10">
+
+</member>
+<member name="">
 
 </member>
 <member name="">
@@ -323,6 +288,180 @@
 <member name="">
 
 </member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob24">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob25">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob26">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob27">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob28">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob29">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob30">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob31">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob32">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob33">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob34">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Prob35">
+
+</member>
+<member name="T:Prob36">
+
+</member>
+<member name="">
+
+</member>
 <member name="T:Prob4">
 
 </member>
@@ -359,10 +498,10 @@
 <member name="">
 
 </member>
-<member name="">
+<member name="T:Prob8">
 
 </member>
-<member name="T:Prob8">
+<member name="">
 
 </member>
 <member name="">

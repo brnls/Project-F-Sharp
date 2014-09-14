@@ -50,8 +50,9 @@ let DiagonalBack =
                 yield diagBack(j,i)}
 
 //Combine all sequences, find the product, find the maximum product
-Seq.append Verts Horizontals |> Seq.append Diagonals |> Seq.append DiagonalBack
-|>Seq.map(fun x-> multLine x)
-|>Seq.max
+let answ = 
+    Seq.append Verts Horizontals |> Seq.append Diagonals |> Seq.append DiagonalBack
+    |>Seq.map(fun x-> multLine x)
+    |>Seq.max
 
 

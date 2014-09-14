@@ -44,8 +44,15 @@ let positionsSumProfit positions currentPrice =
     positions
     |>Seq.sumBy(fun x-> positionProfit x currentPrice)
 
+///Shorthand constructor for an option
 let opt optType strike posType holdings purchasePrice =
     {Instrument = Option {Type = optType; Strike = strike;}; Type = posType; Holdings = holdings; PurchasePrice = purchasePrice;}
 
+let percentChange position currentPrice =
+    (positionProfit position currentPrice) / (position.Holdings * position.PurchasePrice) * 100m
 
-
+//Change in position profit as percentage vs change in underlying    
+let percentVariation position variation = 
+    match position.Instrument with
+    |Option opt -> [for i in (-1 * variation)..(variation)-> (i, (percentChange position (opt.Strike * (1m + decimal i / 100m))))]
+    |Physical -> [for i in (-1 * variation)..(variation) -> (i, percentChange position (position.PurchasePrice * (1m + decimal i / 100m)))]

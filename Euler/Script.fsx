@@ -13,14 +13,13 @@ open Options
 /////////////////////////////////////
 ///////////// Example ///////////////
 /////////////////////////////////////
-
+let longCall= {Instrument = Option {Type = Call; Strike = 550m} ; Type = Long; Holdings = 10m; PurchasePrice = 5m}
 let profitComb = [for i in 500m..600m -> (i, positionProfit longCall i)]
 
 let chart1:ChartData.OneValue = 
     profitComb
     |>Array.ofSeq
     |>FSharpChart.Line
-    |> FSharpChart.WithArea.AxisX(Minimum = 400.0, Maximum = 600.0)
     |> FSharpChart.WithArea.Name("Profit/Loss on expiry")
     |>FSharpChart.Create
         
@@ -30,24 +29,24 @@ chart1.SetData profitComb
 
 
 //////Buy a call
-let longCall= {Instrument = Option {Type = Call; Strike = 550m} ; Type = Long; Holdings = 10m; PurchasePrice = 5m}
+let longCall= {Instrument = Option {Type = Call; Strike = 550m} ; Type = Long; Holdings = 1m; PurchasePrice = 10m}
 chart1.SetData [for i in 500m..600m -> (i, positionProfit longCall i)]
-
+chart1.SetData (percentVariation longCall 10)
 
 //////Buy a put
 let longPut= {longCall with Instrument = Option {Type = Put; Strike = 550m;}} 
 chart1.SetData [for i in 500m..600m -> (i, positionProfit longPut i)]
-
+chart1.SetData (percentVariation longPut 10)
 
 /////Buy physical Shares
-let physical= {Instrument = Physical; Type = Long; Holdings = 10m; PurchasePrice = 550m;}
+let physical= {Instrument = Physical; Type = Long; Holdings = 1m; PurchasePrice = 550m;}
 chart1.SetData [for i in 500m..600m -> (i, positionProfit physical i)]
-
+chart1.SetData (percentVariation physical 20)
 ////Long on underlying long on put
 chart1.SetData [for i in 500m..600m -> (i, positionsSumProfit [physical; longPut] i)]
 
 ///Collar - Long on underlying, short call higher strike, long put lower strike. Sale of short call to cover price of put
-let shortCallHigherStrike = {Instrument = Option {Type = Call; Strike = 580m;}; Type = Short; Holdings = 10m; PurchasePrice = 7m;}
+let shortCallHigherStrike = {Instrument = Option {Type = Call; Strike = 580m;}; Type = Short; Holdings = 1m; PurchasePrice = 7m;}
 let longPutLowerStrike= {longPut with Instrument = Option {Type = Put; Strike = 520m;}; PurchasePrice = 7m;}
 chart1.SetData [for i in 500m..600m -> (i, positionsSumProfit [shortCallHigherStrike; longPutLowerStrike; physical] i)]
 

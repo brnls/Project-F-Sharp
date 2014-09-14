@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EulerHelper", "EulerHelper\EulerHelper.fsproj", "{5DE93E0F-6C3C-4B05-8B2B-1DB92C4B1C33}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Euler", "Euler\Euler.fsproj", "{E683200F-FB59-4754-9A30-4874584C8D09}"

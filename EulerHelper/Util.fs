@@ -1,5 +1,6 @@
 ﻿namespace EulerHelper
 open System.Collections.Generic
+open System
 ////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////   General Utility functions   /////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
@@ -14,24 +15,11 @@ open System.Collections.Generic
                     let res = f x
                     myDic.Add(x,res)
                     res
-
-    //Class to keep track of game score
-        type gameScore() =
-            let mutable A = 0
-            let mutable B = 0
-            member this.AScores x =
-                A <- A + x
-                printfn "%d" A
-            member this.BScores x =
-                B <- B + x
-                printfn "%d" B
-
-            member this.Totals =
-                printfn "A - %d  B - %d" A B
-    
-            member this.reset =
-                A <- 0
-                B <- 0
+        
+        let rec fact x = 
+            match x with
+            |0 -> 1
+            |x -> x * fact (x - 1)
 
         let divRemL (dividend:int64) (divisor:int64) = 
             let quot = dividend / divisor
@@ -40,6 +28,9 @@ open System.Collections.Generic
         
         let rec gcd a b = 
             if b = 0L then a else gcd b (a % b)
+
+        let rec gcd32 a b = 
+            if b = 0 then a else gcd32 b (a % b)
 
         let lcm a b:int64 = a * b / gcd a b
 
@@ -54,15 +45,14 @@ open System.Collections.Generic
                 |[] -> acc
             inner sequence acc
             
-        let rec isPalindrome (str:string) =
-            if( str.Length = 0 || str.Length = 1) then true
+        let rec isPalindrome (arr : 'a[])=
+            if( arr.Length = 0 || arr.Length = 1) then true
             else
-                match (str.[0] = str.[str.Length - 1]) with
-                |true -> isPalindrome (str.Substring(1,(str.Length - 2)))
-                |false -> false      
-
-
-        let aToi (a:char) =
+                if arr.[0] = arr.[arr.Length - 1] then
+                    isPalindrome (arr.[1..arr.Length - 2])
+                else false
+            
+        let inline aToi (a:char) =
             (int)a - 48
 
         let triangleNumbers =  
@@ -85,7 +75,46 @@ open System.Collections.Generic
             else
                 loop n 1 0
 
-      
+        ///Select random element from given sequence
+        let selectRandom (sequence:seq<'a>) = 
+            let rand = Random()
+            let randomElement = int (floor (rand.NextDouble()* float (Seq.length sequence)))
+            sequence
+            |>Seq.nth randomElement      
+
+
+////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////  Array ///////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+    module Array = 
+
+        let swap = Permutations.swap
+        
+        let intToArray i = 
+            i.ToString()
+            |>Seq.map (fun x -> Util.aToi x)
+            |>Array.ofSeq          
+    
+        let arrayToInt (arr:int[]) = 
+            let mutable sum = 0
+            for i in 0 .. (arr.Length - 1) do
+                sum <- sum + (arr.[i] * (pown 10 (arr.Length - 1 - i)))
+            sum
+
+        let permute arr = 
+            Permutations.permute arr
+
+        let rotateForward (arr:'a[]) =
+            let mutable temp = arr.[arr.Length - 1]
+            for i in (arr.Length - 1).. -1 .. 1 do
+                arr.[i] <- arr.[i - 1]
+            arr.[0] <- temp
+
+        let rotateBackward (arr:'a[]) =
+            let mutable temp = arr.[0]
+            for i in 0..(arr.Length - 2) do
+                arr.[i] <- arr.[i + 1]
+            arr.[arr.Length - 1] <- temp
 
 ////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////  Fibonacci Generation /////////////////////////////
@@ -134,3 +163,11 @@ open System.Collections.Generic
                         NumList.[j] <- 0
             NumList |> Array.filter (fun x -> x <> 0)
 
+//        let primesBelow x = 
+//            let NumList = [|0L..x|]
+//            NumList.[1] <- 0L
+//            for i in 2 .. (int (sqrt(float x))) do
+//                if NumList.[i] <> 0L then
+//                    for j in (i+i) .. i .. x do
+//                        NumList.[j] <- 0L
+//            NumList |> Array.filter (fun x -> x <> 0L)
